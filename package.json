@@ -1,0 +1,14 @@
+{
+    "name": "gwan-calcbox",
+    "version": "0.0.1",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "bin": {
+        "calcbox": "./main.js"
+    },
+    "author": "",
+    "license": "ISC"
+}
