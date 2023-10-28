@@ -15,6 +15,45 @@ test("Insufficient params", () => {
 });
 
 test("Insufficient params", () => {
+    const main = spawn("node", ["main.js", "prime"]);
+    const outputs = [];
+    main.stdout.on("data", (output) => {
+        outputs.push(output);
+    });
+
+    main.stdout.on("end", () => {
+        const output = outputs.join("").trim();
+        expect(output).toBe("Insufficient parameter!");
+    });
+});
+
+test("Insufficient params", () => {
+    const main = spawn("node", ["main.js", "fact"]);
+    const outputs = [];
+    main.stdout.on("data", (output) => {
+        outputs.push(output);
+    });
+
+    main.stdout.on("end", () => {
+        const output = outputs.join("").trim();
+        expect(output).toBe("Insufficient parameter!");
+    });
+});
+
+test("Wrong result", () => {
+    const main = spawn("node", ["main.js", "avg", "4", "6", "8"]);
+    const outputs = [];
+    main.stdout.on("data", (output) => {
+        outputs.push(output);
+    });
+
+    main.stdout.on("end", () => {
+        const output = outputs.join("").trim();
+        expect(output).toBe("6");
+    });
+});
+
+test("Wrong result", () => {
     const main = spawn("node", ["main.js", "prime", "3"]);
     const outputs = [];
     main.stdout.on("data", (output) => {
@@ -27,7 +66,7 @@ test("Insufficient params", () => {
     });
 });
 
-test("Insufficient params", () => {
+test("Wrong result", () => {
     const main = spawn("node", ["main.js", "fact", "5"]);
     const outputs = [];
     main.stdout.on("data", (output) => {
